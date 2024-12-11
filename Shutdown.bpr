@@ -28,7 +28,7 @@
     <SYSDEFINES value="NO_STRICT;_VIS_NOLIB"/>
     <MAINSOURCE value="Shutdown.cpp"/>
     <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ocx"/>
-    <LIBPATH value="$(BCB)\lib_uk\obj;$(BCB)\lib_uk\release;$(BCB)\lib_uk;..\..\object\cbuilder\lib"/>
+    <LIBPATH value="$(BCB)\lib_ger\obj;$(BCB)\lib_ger;..\..\object\cbuilder\lib"/>
     <WARNINGS value="-w-par -w-8027 -w-8026"/>
     <WARNOPTSTR value=""/>
   </MACROS>
@@ -52,7 +52,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=1
 Release=0
-Build=7
+Build=8
 Debug=0
 PreRelease=0
 Special=0
@@ -64,7 +64,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=Martin Gäckler
 FileDescription=Automatische Rechnerabschaltung
-FileVersion=1.1.0.7
+FileVersion=1.1.0.8
 InternalName=Shutdown
 LegalCopyright=(c) 2011 by Martin Gäckler
 LegalTrademarks=
@@ -86,9 +86,9 @@ Item7=..\GAKLIB\CTOOLS;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ocx;..\GAKLIB\VC
 
 [HistoryLists\hlLibraryPath]
 Count=12
-Item0=$(BCB)\lib_uk\obj;$(BCB)\lib_uk\release;$(BCB)\lib_uk;..\..\object\cbuilder\lib
-Item1=$(BCB)\lib_uk\obj;$(BCB)\lib_uk;..\..\object\cbuilder\lib
-Item2=$(BCB)\lib_ger\obj;$(BCB)\lib_ger;..\..\object\cbuilder\lib
+Item0=$(BCB)\lib_ger\obj;$(BCB)\lib_ger;..\..\object\cbuilder\lib
+Item1=$(BCB)\lib_uk\obj;$(BCB)\lib_uk\release;$(BCB)\lib_uk;..\..\object\cbuilder\lib
+Item2=$(BCB)\lib_uk\obj;$(BCB)\lib_uk;..\..\object\cbuilder\lib
 Item3=$(BCB)\lib_ger\obj;$(BCB)\lib_ger;..\..\object\cbuilder\lib\
 Item4=F:\object\;C:\Program Files (x86)\Borland\CBuilder5\GAKLIB\CTOOLS\;C:\Program Files (x86)\Borland\CBuilder5\GAKLIB\Repository\;$(BCB)\lib_ger\obj;$(BCB)\lib_ger;C:\Program Files (x86)\Borland\object\cbuilder\lib\
 Item5=F:\object\;..\GAKLIB\CTOOLS;..\GAKLIB\Repository;$(BCB)\lib_ger\obj;$(BCB)\lib_ger;..\..\object\cbuilder\lib
