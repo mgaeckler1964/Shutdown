@@ -52,7 +52,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=1
 Release=0
-Build=8
+Build=10
 Debug=0
 PreRelease=0
 Special=0
@@ -64,7 +64,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=Martin Gäckler
 FileDescription=Automatische Rechnerabschaltung
-FileVersion=1.1.0.8
+FileVersion=1.1.0.10
 InternalName=Shutdown
 LegalCopyright=(c) 2011 by Martin Gäckler
 LegalTrademarks=

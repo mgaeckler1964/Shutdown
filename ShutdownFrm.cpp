@@ -61,7 +61,7 @@ void TShutdownForm::startTimer( TButton *button )
 	;
 
 	std::auto_ptr<TRegistry> registry( new TRegistry() );
-	if( registry->OpenKey( "Software\\CRESD\\Shutdown", true ) )
+	if( registry->OpenKey( "Software\\gak\\Shutdown", true ) )
 	{
 		int totalSeconds = hour * 3600 + minute * 60 + second;
 		registry->WriteInteger( "totalSeconds", totalSeconds );
@@ -199,7 +199,7 @@ void __fastcall TShutdownForm::FormShow(TObject *)
 	Word	hour, minute, second;
 
 	std::auto_ptr<TRegistry> registry( new TRegistry() );
-	if( registry->OpenKey( "Software\\CRESD\\Shutdown", false ) )
+	if( registry->OpenKey( "Software\\gak\\Shutdown", false ) )
 	{
 		if( registry->ValueExists( "totalSeconds" ) )
 		{
