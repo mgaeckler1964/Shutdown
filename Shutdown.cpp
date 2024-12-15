@@ -372,17 +372,7 @@ void ShutdownMainWindow::handleTimer( void )
 	}
 	else
 	{
-		stopTimer();
-		switch( m_controlId )
-		{
-			case ShutdownPUSHBUTTON_id:
-			case LogOffPUSHBUTTON_id:
-			case LockPUSHBUTTON_id:
-			case RestartPUSHBUTTON_id:
-			case SuspendPUSHBUTTON_id:
-			case HibernatePUSHBUTTON_id:
-				break;
-		}
+		execShutdown( m_controlId );
 	}
 }
 
