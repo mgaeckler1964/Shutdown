@@ -1,4 +1,4 @@
 # Shutdown
  time controlled shutdown
 
-To compile you need Borland C++ Builder.
+Use Visual Studio to compile.
