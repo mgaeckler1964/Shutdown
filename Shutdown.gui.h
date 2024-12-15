@@ -32,11 +32,11 @@ namespace winlibGUI {
 	const int TimeUPDOWNBUTTON_id=137;
 	const int UnitCOMBOBOX_id=140;
 
-	class ShutdownFORM_form : public winlib::OverlappedWindow {
+	class ShutdownFORM_form : public winlib::PopupWindow {
 		public:
-		ShutdownFORM_form(winlib::BasicWindow *owner) : OverlappedWindow(owner) {}
+		ShutdownFORM_form(winlib::BasicWindow *owner) : PopupWindow(owner) {}
 		winlib::SuccessCode create(winlib::BasicWindow*parent) {
-			return OverlappedWindow::create(parent,"ShutdownFORM");
+			return PopupWindow::create(parent,"ShutdownFORM");
 		}
 
 		winlib::PushButton *ShutdownPUSHBUTTON;
