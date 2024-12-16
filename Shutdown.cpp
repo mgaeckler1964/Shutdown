@@ -100,7 +100,7 @@ public:
 	}
 };
 
-class ShutdownApplication : public Application
+class ShutdownApplication : public GuiApplication
 {
 	virtual bool 	startApplication( HINSTANCE /*hInstance*/, const char * /*cmdLine*/ )
 	{
@@ -127,7 +127,7 @@ class ShutdownApplication : public Application
 	}
 
 	public:
-	ShutdownApplication() : Application( IDI_SHUTDOWN ) {}
+	ShutdownApplication() : GuiApplication( IDI_SHUTDOWN ) {}
 };
 
 // --------------------------------------------------------------------- //

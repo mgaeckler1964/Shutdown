@@ -13,24 +13,32 @@
 #include <winlib/xmlEditorChild.h>
 #include <winlib/gridView.h>
 
+#include <winlib/winApp.h>
+
 namespace winlibGUI {
 
 	const int ClosePUSHBUTTON_id=138;
 	const int HibernatePUSHBUTTON_id=134;
-	const int InfoLabel_id=143;
+	const int InfoLabel_id=142;
 	const int LABEL_id=135;
 	const int LockPUSHBUTTON_id=131;
 	const int LogOffPUSHBUTTON_id=130;
 	const int mainFRAME_id=141;
 	const int RestartPUSHBUTTON_id=132;
 	const int ShutdownFORM_id=128;
-	const int ShutdownICON_id=142;
+	const int ShutdownICON_id=143;
 	const int ShutdownPUSHBUTTON_id=129;
 	const int SuspendPUSHBUTTON_id=133;
 	const int TimeEDIT_id=136;
 	const int TimeLABEL_id=139;
 	const int TimeUPDOWNBUTTON_id=137;
 	const int UnitCOMBOBOX_id=140;
+
+	class GuiApplication : public winlib::Application {
+		public:
+		virtual gak::xml::Document *getGuiDoc( void );
+		GuiApplication(int iconID=-1) : winlib::Application(iconID) {}
+	};
 
 	class ShutdownFORM_form : public winlib::PopupWindow {
 		public:
@@ -52,8 +60,8 @@ namespace winlibGUI {
 		winlib::Label *TimeLABEL;
 		winlib::ComboBox *UnitCOMBOBOX;
 		winlib::FrameChild *mainFRAME;
-		winlib::Label *ShutdownICON;
 		winlib::Label *InfoLabel;
+		winlib::Label *ShutdownICON;
 		private:
 		virtual void getControls();
 	};	// end of ShutdownFORM
