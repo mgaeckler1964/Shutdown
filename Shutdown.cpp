@@ -87,7 +87,7 @@ class ShutdownMainWindow : public ShutdownFORM_form
 	void ShutdownMainWindow::execShutdown( int mode );
 
 	virtual ProcessStatus handleCreate( void );
-	virtual ProcessStatus handleButtonClick( int control );
+	virtual ProcessStatus handleCommand( int control );
 	virtual void handleTimer( void );
 	void startTimer( int control );
 	void stopTimer( void );
@@ -112,6 +112,17 @@ class ShutdownApplication : public GuiApplication
 	{
 		doDisableLog();
 		ShutdownMainWindow	*mainWindow = new ShutdownMainWindow;
+		static ACCEL accelerators[] =
+		{
+			{ FVIRTKEY|FALT,	'A', ShutdownPUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'M', LogOffPUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'S', LockPUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'N', RestartPUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'E', SuspendPUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'R', HibernatePUSHBUTTON_id },
+			{ FVIRTKEY|FALT,	'B', ClosePUSHBUTTON_id },
+		};
+		mainWindow->setAccelerators( accelerators, arraySize( accelerators ) );
 		if( mainWindow->create( NULL ) == scERROR )
 		{
 			MessageBox( NULL, "Could not create window", "Error", MB_ICONERROR );
@@ -321,7 +332,7 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	return psDO_DEFAULT;
 }
 
-ProcessStatus ShutdownMainWindow::handleButtonClick( int control )
+ProcessStatus ShutdownMainWindow::handleCommand( int control )
 {
 	switch( control )
 	{
