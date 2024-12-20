@@ -87,7 +87,7 @@ class ShutdownMainWindow : public ShutdownFORM_form
 	void ShutdownMainWindow::execShutdown( int mode );
 
 	virtual ProcessStatus handleCreate( void );
-	virtual ProcessStatus handleCommand( int control );
+	virtual ProcessStatus handleButtonClick( int control );
 	virtual void handleTimer( void );
 	void startTimer( int control );
 	void stopTimer( void );
@@ -112,23 +112,14 @@ class ShutdownApplication : public GuiApplication
 	{
 		doDisableLog();
 		ShutdownMainWindow	*mainWindow = new ShutdownMainWindow;
-		static ACCEL accelerators[] =
-		{
-			{ FVIRTKEY|FALT,	'A', ShutdownPUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'M', LogOffPUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'S', LockPUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'N', RestartPUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'E', SuspendPUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'R', HibernatePUSHBUTTON_id },
-			{ FVIRTKEY|FALT,	'B', ClosePUSHBUTTON_id },
-		};
-		mainWindow->setAccelerators( accelerators, arraySize( accelerators ) );
 		if( mainWindow->create( NULL ) == scERROR )
 		{
 			MessageBox( NULL, "Could not create window", "Error", MB_ICONERROR );
 			delete mainWindow;
 			mainWindow = NULL;
 		}
+		mainWindow->focus();
+		mainWindow->TimeEDIT->focus();
 
 		return mainWindow;
 	}
@@ -328,13 +319,15 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 
 	TimeUPDOWNBUTTON->setPosition(short(totalSeconds));
 	UnitCOMBOBOX->selectEntry(unit);
+	focus();
+	TimeEDIT->focus();
 
 	return psDO_DEFAULT;
 }
 
-ProcessStatus ShutdownMainWindow::handleCommand( int control )
+ProcessStatus ShutdownMainWindow::handleButtonClick( int buttonID )
 {
-	switch( control )
+	switch( buttonID )
 	{
 		case ShutdownPUSHBUTTON_id:
 		case LogOffPUSHBUTTON_id:
@@ -342,7 +335,7 @@ ProcessStatus ShutdownMainWindow::handleCommand( int control )
 		case RestartPUSHBUTTON_id:
 		case SuspendPUSHBUTTON_id:
 		case HibernatePUSHBUTTON_id:
-			startTimer(control);
+			startTimer(buttonID);
 			break;
 
 		case ClosePUSHBUTTON_id:
@@ -359,7 +352,7 @@ ProcessStatus ShutdownMainWindow::handleCommand( int control )
 		}
 
 		default:
-			return ShutdownFORM_form::handleButtonClick( control );
+			return ShutdownFORM_form::handleButtonClick( buttonID );
 	}
 	return psPROCESSED;
 }
