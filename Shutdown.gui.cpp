@@ -31,24 +31,25 @@ namespace winlibGUI {
 "<child type=\"PushButton\" name=\"RestartPUSHBUTTON\" caption=\"&amp;Neustart\" x=\"304\" y=\"0\" width=\"80\" height=\"25\" style=\"1342242816\" id=\"132\">\n"
 "<layout paddingLeft=\"5\" paddingRight=\"5\" paddingTop=\"5\" paddingBottom=\"5\" attachment=\"0\" growWidth=\"1\" growHeight=\"1\" />\n"
 "</child>\n"
-"<child type=\"PushButton\" name=\"SuspendPUSHBUTTON\" caption=\"&amp;Energie sparen\" x=\"337\" y=\"25\" width=\"80\" height=\"25\" style=\"1342242816\" id=\"133\">\n"
+"<child type=\"PushButton\" name=\"SuspendPUSHBUTTON\" caption=\"&amp;Energie sparen\" x=\"456\" y=\"8\" width=\"96\" height=\"32\" style=\"1342242816\" id=\"133\">\n"
 "<layout paddingLeft=\"5\" paddingRight=\"5\" paddingTop=\"5\" paddingBottom=\"5\" attachment=\"0\" growWidth=\"1\" growHeight=\"1\" />\n"
 "</child>\n"
-"<child type=\"PushButton\" name=\"HibernatePUSHBUTTON\" caption=\"&amp;Ruheustand\" x=\"474\" y=\"14\" width=\"80\" height=\"25\" style=\"1342242816\" id=\"134\">\n"
+"<child type=\"PushButton\" name=\"HibernatePUSHBUTTON\" caption=\"&amp;Ruhezustand\" x=\"568\" y=\"8\" width=\"96\" height=\"32\" style=\"1342242816\" id=\"134\">\n"
 "<layout paddingLeft=\"5\" paddingRight=\"5\" paddingTop=\"5\" paddingBottom=\"5\" attachment=\"0\" growWidth=\"1\" growHeight=\"1\" />\n"
 "</child>\n"
 "</child>\n"
 "<layoutManager type=\"AttachmentManager\" />\n"
 "<child type=\"FrameChild\" name=\"\" caption=\"\" x=\"0\" y=\"0\" width=\"688\" height=\"224\" style=\"1342308352\">\n"
+"<child type=\"Label\" name=\"ActionLABEL\" caption=\"\" x=\"32\" y=\"80\" width=\"112\" height=\"24\" style=\"1342242827\" id=\"135\" font=\"MS Sans Serif;0;0;0;0;400;0;0;0;0;1;2;1;34\" />\n"
 "<layout attachment=\"4\" growWidth=\"1\" growHeight=\"1\" />\n"
-"<child type=\"FrameChild\" name=\"mainFRAME\" caption=\"\" x=\"352\" y=\"0\" width=\"336\" height=\"224\" style=\"1342308352\" id=\"141\">\n"
+"<child type=\"FrameChild\" name=\"mainFRAME\" caption=\"\" x=\"352\" y=\"0\" width=\"336\" height=\"224\" style=\"1342308352\" id=\"142\">\n"
 "<layout attachment=\"2\" growHeight=\"1\" />\n"
-"<child type=\"Label\" name=\"LABEL\" caption=\"Zeit:\" x=\"16\" y=\"24\" width=\"24\" height=\"16\" style=\"1342242827\" id=\"135\" />\n"
-"<child type=\"EditControl\" name=\"TimeEDIT\" caption=\"Edit\" x=\"48\" y=\"24\" width=\"90\" height=\"24\" style=\"1350631808\" id=\"136\" />\n"
-"<child type=\"UpDownButton\" name=\"TimeUPDOWNBUTTON\" caption=\"\" x=\"296\" y=\"32\" width=\"25\" height=\"24\" style=\"1342242870\" id=\"137\" />\n"
-"<child type=\"PushButton\" name=\"ClosePUSHBUTTON\" caption=\"&amp;Beenden\" x=\"240\" y=\"24\" width=\"80\" height=\"24\" style=\"1342242816\" id=\"138\" />\n"
-"<child type=\"Label\" name=\"TimeLABEL\" caption=\"00:00:00\" x=\"16\" y=\"64\" width=\"304\" height=\"72\" style=\"1342242827\" id=\"139\" font=\"Courier New;-64;0;0;0;400;0;0;0;0;3;2;1;49\" />\n"
-"<child type=\"ComboBox\" name=\"UnitCOMBOBOX\" caption=\"\" x=\"152\" y=\"24\" width=\"80\" height=\"62\" style=\"1342243843\" id=\"140\">\n"
+"<child type=\"Label\" name=\"LABEL\" caption=\"Zeit:\" x=\"16\" y=\"24\" width=\"24\" height=\"16\" style=\"1342242827\" id=\"136\" />\n"
+"<child type=\"EditControl\" name=\"TimeEDIT\" caption=\"Edit\" x=\"48\" y=\"24\" width=\"90\" height=\"24\" style=\"1350631808\" id=\"137\" />\n"
+"<child type=\"UpDownButton\" name=\"TimeUPDOWNBUTTON\" caption=\"\" x=\"296\" y=\"32\" width=\"25\" height=\"24\" style=\"1342242870\" id=\"138\" />\n"
+"<child type=\"PushButton\" name=\"ClosePUSHBUTTON\" caption=\"&amp;Beenden\" x=\"240\" y=\"24\" width=\"80\" height=\"24\" style=\"1342242816\" id=\"139\" />\n"
+"<child type=\"Label\" name=\"TimeLABEL\" caption=\"00:00:00\" x=\"16\" y=\"64\" width=\"304\" height=\"72\" style=\"1342242827\" id=\"140\" font=\"Courier New;-64;0;0;0;400;0;0;0;0;3;2;1;49\" />\n"
+"<child type=\"ComboBox\" name=\"UnitCOMBOBOX\" caption=\"\" x=\"152\" y=\"24\" width=\"80\" height=\"62\" style=\"1342243843\" id=\"141\">\n"
 "<items>\n"
 "<item>Stunden</item>\n"
 "<item>Minuten</item>\n"
@@ -56,12 +57,22 @@ namespace winlibGUI {
 "</items>\n"
 "</child>\n"
 "</child>\n"
-"<child type=\"Label\" name=\"InfoLabel\" caption=\"xx\" x=\"8\" y=\"128\" width=\"80\" height=\"25\" style=\"1342242827\" font=\"Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49\" id=\"142\" />\n"
 "<layoutManager type=\"AttachmentManager\" />\n"
 "<child type=\"Label\" name=\"ShutdownICON\" caption=\"#1\" x=\"32\" y=\"32\" width=\"32\" height=\"32\" style=\"1342242819\" id=\"143\" />\n"
+"<child type=\"Label\" name=\"InfoLabel\" caption=\"xx\" x=\"8\" y=\"128\" width=\"80\" height=\"25\" style=\"1342242827\" font=\"Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49\" id=\"144\" />\n"
 "</child>\n"
 "</form>\n"
 "</forms>\n"
+"<strings>\n"
+"<list name=\"STRINGLIST\">\n"
+"<string name=\"LogOFF\" caption=\"Abmelden\" id=\"145\" />\n"
+"<string name=\"Shutdown\" caption=\"Abschalten\" id=\"146\" />\n"
+"<string name=\"Restart\" caption=\"Neustart\" id=\"147\" />\n"
+"<string name=\"Lock\" caption=\"Sperren\" id=\"148\" />\n"
+"<string name=\"Suspend\" caption=\"Energie sparen\" id=\"149\" />\n"
+"<string name=\"Hibernate\" caption=\"Ruhezustand\" id=\"150\" />\n"
+"</list>\n"
+"</strings>\n"
 "</gui>";
 			return Application::getGuiDoc( xmlSrc );
 		}
@@ -76,6 +87,7 @@ namespace winlibGUI {
 		RestartPUSHBUTTON=static_cast<winlib::PushButton*>(findChild(RestartPUSHBUTTON_id));
 		SuspendPUSHBUTTON=static_cast<winlib::PushButton*>(findChild(SuspendPUSHBUTTON_id));
 		HibernatePUSHBUTTON=static_cast<winlib::PushButton*>(findChild(HibernatePUSHBUTTON_id));
+		ActionLABEL=static_cast<winlib::Label*>(findChild(ActionLABEL_id));
 		LABEL=static_cast<winlib::Label*>(findChild(LABEL_id));
 		TimeEDIT=static_cast<winlib::EditControl*>(findChild(TimeEDIT_id));
 		TimeUPDOWNBUTTON=static_cast<winlib::UpDownButton*>(findChild(TimeUPDOWNBUTTON_id));
@@ -83,7 +95,15 @@ namespace winlibGUI {
 		TimeLABEL=static_cast<winlib::Label*>(findChild(TimeLABEL_id));
 		UnitCOMBOBOX=static_cast<winlib::ComboBox*>(findChild(UnitCOMBOBOX_id));
 		mainFRAME=static_cast<winlib::FrameChild*>(findChild(mainFRAME_id));
-		InfoLabel=static_cast<winlib::Label*>(findChild(InfoLabel_id));
 		ShutdownICON=static_cast<winlib::Label*>(findChild(ShutdownICON_id));
+		InfoLabel=static_cast<winlib::Label*>(findChild(InfoLabel_id));
 	}	// ShutdownFORM
+	const int STRINGLIST_ids[] = {
+		LogOFF_id,
+		Shutdown_id,
+		Restart_id,
+		Lock_id,
+		Suspend_id,
+		Hibernate_id,
+	};
 }	// namespace winlibGUI

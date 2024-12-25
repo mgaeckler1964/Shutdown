@@ -178,6 +178,8 @@ void ShutdownMainWindow::startTimer( int control )
 	}
 	else
 	{
+		STRING action;
+
 		stopTimer();
 
 		int		totalSeconds = TimeUPDOWNBUTTON->getPosition();
@@ -198,6 +200,29 @@ void ShutdownMainWindow::startTimer( int control )
 		m_endTime = time(NULL)+totalSeconds;
 		m_controlId = control;
 		setTimer(1000);
+
+		switch( control )
+		{
+			case  ShutdownPUSHBUTTON_id:
+				action = loadString(Shutdown_id);
+				break;
+			case  LogOffPUSHBUTTON_id:
+				action = loadString(LogOFF_id);
+				break;
+			case  LockPUSHBUTTON_id:
+				action = loadString(Lock_id);
+				break;
+			case  RestartPUSHBUTTON_id:
+				action = loadString(Restart_id);
+				break;
+			case SuspendPUSHBUTTON_id:
+				action = loadString(Suspend_id);
+				break;
+			case HibernatePUSHBUTTON_id:
+				action = loadString(Hibernate_id);
+				break;
+		}
+		ActionLABEL->setText(action);
 	}
 }
 
@@ -207,6 +232,7 @@ void ShutdownMainWindow::stopTimer( void )
 	m_controlId = 0;
 	TimeLABEL->setText("00:00:00");
 	removeTimer();
+	ActionLABEL->setText("");
 }
 
 void ShutdownMainWindow::execShutdown( int control )
@@ -321,6 +347,7 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	UnitCOMBOBOX->selectEntry(unit);
 	focus();
 	TimeEDIT->focus();
+
 
 	return psDO_DEFAULT;
 }
