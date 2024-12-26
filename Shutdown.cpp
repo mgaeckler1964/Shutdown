@@ -343,6 +343,8 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 		totalSeconds /= 3600;
 	}
 
+	ActionLABEL->setText("");
+
 	TimeUPDOWNBUTTON->setPosition(short(totalSeconds));
 	UnitCOMBOBOX->selectEntry(unit);
 	focus();
