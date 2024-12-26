@@ -231,8 +231,8 @@ void ShutdownMainWindow::stopTimer( void )
 	m_endTime = 0;
 	m_controlId = 0;
 	TimeLABEL->setText("00:00:00");
-	removeTimer();
 	ActionLABEL->setText("");
+	removeTimer();
 }
 
 void ShutdownMainWindow::execShutdown( int control )
