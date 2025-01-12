@@ -27,36 +27,28 @@
 <layoutManager type="AttachmentManager" />
 <child type="FrameChild" name="" caption="" x="0" y="0" width="688" height="224" style="1342308352">
 <layout attachment="4" growWidth="1" growHeight="1" />
-<child type="FrameChild" name="mainFRAME" caption="" x="352" y="0" width="336" height="224" style="1342308352" id="140">
+<child type="FrameChild" name="mainFRAME" caption="" x="312" y="0" width="336" height="144" style="1342308352" id="138">
 <layout attachment="2" growHeight="1" />
 <child type="Label" name="" caption="Zeit:" x="16" y="24" width="24" height="16" style="1342242827" />
-<child type="EditControl" name="TimeEDIT" caption="Edit" x="48" y="24" width="90" height="24" style="1350631808" id="135" />
-<child type="UpDownButton" name="TimeUPDOWNBUTTON" caption="" x="296" y="32" width="25" height="24" style="1342242870" id="136" />
-<child type="Label" name="TimeLABEL" caption="00:00:00" x="16" y="64" width="304" height="72" style="1342242827" id="137" font="Courier New;-64;0;0;0;400;0;0;0;0;3;2;1;49" />
-<child type="PushButton" name="ClosePUSHBUTTON" caption="&amp;Beenden" x="240" y="24" width="80" height="24" style="1342242816" id="138" />
-<child type="ComboBox" name="UnitCOMBOBOX" caption="" x="152" y="24" width="80" height="62" style="1342243843" id="139">
-<items>
-<item>Stunden</item>
-<item>Minuten</item>
-<item>Sekunden</item>
-</items>
+<child type="Label" name="TimeLABEL" caption="00:00:00" x="16" y="64" width="304" height="72" style="1342242827" id="135" font="Courier New;-64;0;0;0;400;0;0;0;0;3;2;1;49" />
+<child type="PushButton" name="ClosePUSHBUTTON" caption="&amp;Beenden" x="240" y="24" width="80" height="24" style="1342242816" id="136" />
+<child type="DateTimePicker" name="DateTimePICKER" caption="" x="72" y="24" width="80" height="24" style="1342242825" id="137" />
 </child>
-</child>
-<child type="Label" name="ShutdownICON" caption="#1" x="32" y="32" width="32" height="32" style="1342242819" id="141" />
-<child type="Label" name="ActionLABEL" caption="" x="32" y="80" width="0" height="0" style="1342242827" id="142" font="Courier New;-24;0;0;0;400;0;0;0;0;3;2;1;49" />
+<child type="Label" name="ShutdownICON" caption="#1" x="32" y="32" width="32" height="32" style="1342242819" id="139" />
+<child type="Label" name="ActionLABEL" caption="" x="32" y="80" width="0" height="0" style="1342242827" id="140" font="Courier New;-24;0;0;0;400;0;0;0;0;3;2;1;49" />
 <layoutManager type="AttachmentManager" />
-<child type="Label" name="InfoLabel" caption="" x="8" y="128" width="0" height="0" style="1342242827" font="Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49" id="143" />
+<child type="Label" name="InfoLabel" caption="" x="8" y="128" width="0" height="0" style="1342242827" font="Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49" id="141" />
 </child>
 </form>
 </forms>
 <strings>
 <list name="STRINGLIST">
-<string name="LogOFF" caption="Abmelden" id="144" />
-<string name="Shutdown" caption="Abschalten" id="145" />
-<string name="Restart" caption="Neustart" id="146" />
-<string name="Lock" caption="Sperren" id="147" />
-<string name="Suspend" caption="Energie sparen" id="148" />
-<string name="Hibernate" caption="Ruhezustand" id="149" />
+<string name="LogOFF" caption="Abmelden" id="142" />
+<string name="Shutdown" caption="Abschalten" id="143" />
+<string name="Restart" caption="Neustart" id="144" />
+<string name="Lock" caption="Sperren" id="145" />
+<string name="Suspend" caption="Energie sparen" id="146" />
+<string name="Hibernate" caption="Ruhezustand" id="147" />
 </list>
 </strings>
 </gui>

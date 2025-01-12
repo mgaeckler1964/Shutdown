@@ -17,28 +17,26 @@
 
 namespace winlibGUI {
 
-	const int ActionLABEL_id=142;
-	const int ClosePUSHBUTTON_id=138;
-	const int Hibernate_id=149;
+	const int ActionLABEL_id=140;
+	const int ClosePUSHBUTTON_id=136;
+	const int DateTimePICKER_id=137;
+	const int Hibernate_id=147;
 	const int HibernatePUSHBUTTON_id=134;
-	const int InfoLabel_id=143;
-	const int Lock_id=147;
+	const int InfoLabel_id=141;
+	const int Lock_id=145;
 	const int LockPUSHBUTTON_id=131;
-	const int LogOFF_id=144;
+	const int LogOFF_id=142;
 	const int LogOffPUSHBUTTON_id=130;
-	const int mainFRAME_id=140;
-	const int Restart_id=146;
+	const int mainFRAME_id=138;
+	const int Restart_id=144;
 	const int RestartPUSHBUTTON_id=132;
-	const int Shutdown_id=145;
+	const int Shutdown_id=143;
 	const int ShutdownFORM_id=128;
-	const int ShutdownICON_id=141;
+	const int ShutdownICON_id=139;
 	const int ShutdownPUSHBUTTON_id=129;
-	const int Suspend_id=148;
+	const int Suspend_id=146;
 	const int SuspendPUSHBUTTON_id=133;
-	const int TimeEDIT_id=135;
-	const int TimeLABEL_id=137;
-	const int TimeUPDOWNBUTTON_id=136;
-	const int UnitCOMBOBOX_id=139;
+	const int TimeLABEL_id=135;
 
 	class GuiApplication : public winlib::Application {
 		public:
@@ -59,11 +57,9 @@ namespace winlibGUI {
 		winlib::PushButton *RestartPUSHBUTTON;
 		winlib::PushButton *SuspendPUSHBUTTON;
 		winlib::PushButton *HibernatePUSHBUTTON;
-		winlib::EditControl *TimeEDIT;
-		winlib::UpDownButton *TimeUPDOWNBUTTON;
 		winlib::Label *TimeLABEL;
 		winlib::PushButton *ClosePUSHBUTTON;
-		winlib::ComboBox *UnitCOMBOBOX;
+		winlib::DateTimePicker *DateTimePICKER;
 		winlib::FrameChild *mainFRAME;
 		winlib::Label *ShutdownICON;
 		winlib::Label *ActionLABEL;

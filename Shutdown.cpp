@@ -119,7 +119,7 @@ class ShutdownApplication : public GuiApplication
 			mainWindow = NULL;
 		}
 		mainWindow->focus();
-		mainWindow->TimeEDIT->focus();
+		mainWindow->DateTimePICKER->focus();
 
 		return mainWindow;
 	}
@@ -182,20 +182,12 @@ void ShutdownMainWindow::startTimer( int control )
 
 		stopTimer();
 
-		int		totalSeconds = TimeUPDOWNBUTTON->getPosition();
-		long	unit = UnitCOMBOBOX->getSelection();
-
-		if( unit == 1 )
-		{
-			totalSeconds *= 60;
-		}
-		else if( unit == 0 )
-		{
-			totalSeconds *= 3600;
-		}
+		SYSTEMTIME sysTime;
+		DateTimePICKER->getSystemTime(sysTime);
+		int		totalSeconds = sysTime.wHour * 3600 + sysTime.wMinute * 30 + sysTime.wSecond;
 
 		shutdownApplication.WriteProfile( false, "", "totalSeconds", totalSeconds );
-		shutdownApplication.WriteProfile( false, "", "unit", unit );
+		shutdownApplication.WriteProfile( false, "", "unit", "" );
 
 		m_endTime = time(NULL)+totalSeconds;
 		m_controlId = control;
@@ -332,24 +324,17 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	InfoLabel->setText(gak::formatNumber(sizeof(void*)*8) + "-bit");
 	
 	long	totalSeconds = shutdownApplication.GetProfile( "", "totalSeconds", 3600 );
-	long	unit = shutdownApplication.GetProfile( "", "unit", 2 );
 
-	if( unit == 1 )
-	{
-		totalSeconds /= 60;
-	}
-	else if( unit == 0 )
-	{
-		totalSeconds /= 3600;
-	}
-
-	ActionLABEL->setText("");
-
-	TimeUPDOWNBUTTON->setPosition(short(totalSeconds));
-	UnitCOMBOBOX->selectEntry(unit);
+	SYSTEMTIME	systime;
+	DateTimePICKER->getSystemTime(systime);
+	systime.wHour = WORD(totalSeconds / 3600);
+	totalSeconds %= 3600;
+	systime.wMinute = WORD(totalSeconds / 60);
+	totalSeconds %= 60;
+	systime.wSecond = WORD(totalSeconds);
+	DateTimePICKER->setSystemTime(systime);
 	focus();
-	TimeEDIT->focus();
-
+	DateTimePICKER->focus();
 
 	return psDO_DEFAULT;
 }
