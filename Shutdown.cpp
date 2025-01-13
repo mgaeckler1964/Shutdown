@@ -104,7 +104,7 @@ class ShutdownApplication : public GuiApplication
 {
 	virtual bool 	startApplication( HINSTANCE /*hInstance*/, const char * /*cmdLine*/ )
 	{
-		doEnableLog(gakLogging::llInfo);
+		doEnableLogEx(gakLogging::llInfo);
 		setApplication("Shutdown");
 		setComapny("gak");
 		return 0;
