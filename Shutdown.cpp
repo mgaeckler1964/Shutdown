@@ -104,13 +104,13 @@ class ShutdownApplication : public GuiApplication
 {
 	virtual bool 	startApplication( HINSTANCE /*hInstance*/, const char * /*cmdLine*/ )
 	{
+		doEnableLog(gakLogging::llInfo);
 		setApplication("Shutdown");
 		setComapny("gak");
 		return 0;
 	}
 	virtual CallbackWindow  *createMainWindow( const char * /*cmdLine*/, int /*nCmdShow*/ )
 	{
-		doDisableLog();
 		ShutdownMainWindow	*mainWindow = new ShutdownMainWindow;
 		if( mainWindow->create( NULL ) == scERROR )
 		{
