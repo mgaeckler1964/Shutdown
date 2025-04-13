@@ -15,7 +15,7 @@ namespace winlibGUI {
 			gak::STRING xmlSrc = "<?xml version=\"1.0\" encoding=\"iso-8859-1\" ?>\n"
 "<gui>\n"
 "<forms>\n"
-"<form name=\"ShutdownFORM\" style=\"277807104\" width=\"665\" height=\"220\" caption=\"Shutdown\" id=\"128\" baseClass=\"PopupWindow\">\n"
+"<form name=\"ShutdownFORM\" style=\"277807104\" width=\"665\" height=\"260\" caption=\"Shutdown\" id=\"128\" baseClass=\"PopupWindow\">\n"
 "<child type=\"FrameChild\" name=\"\" caption=\"\" x=\"8\" y=\"152\" width=\"640\" height=\"32\" style=\"1350696960\">\n"
 "<layout x=\"0\" y=\"1\" paddingLeft=\"0\" paddingRight=\"0\" paddingTop=\"0\" paddingBottom=\"0\" attachment=\"3\" growWidth=\"1\" growHeight=\"0\" />\n"
 "<layoutManager type=\"RowManager\" />\n"
@@ -41,28 +41,30 @@ namespace winlibGUI {
 "<layoutManager type=\"AttachmentManager\" />\n"
 "<child type=\"FrameChild\" name=\"\" caption=\"\" x=\"0\" y=\"0\" width=\"688\" height=\"224\" style=\"1342308352\">\n"
 "<layout attachment=\"4\" growWidth=\"1\" growHeight=\"1\" />\n"
-"<child type=\"FrameChild\" name=\"mainFRAME\" caption=\"\" x=\"312\" y=\"0\" width=\"336\" height=\"144\" style=\"1342308352\" id=\"138\">\n"
+"<child type=\"FrameChild\" name=\"mainFRAME\" caption=\"\" x=\"312\" y=\"0\" width=\"336\" height=\"216\" style=\"1342308352\" id=\"139\">\n"
 "<layout attachment=\"2\" growHeight=\"1\" />\n"
 "<child type=\"Label\" name=\"\" caption=\"Zeit:\" x=\"16\" y=\"24\" width=\"24\" height=\"16\" style=\"1342242827\" />\n"
 "<child type=\"Label\" name=\"TimeLABEL\" caption=\"00:00:00\" x=\"16\" y=\"64\" width=\"304\" height=\"72\" style=\"1342242827\" id=\"135\" font=\"Courier New;-64;0;0;0;400;0;0;0;0;3;2;1;49\" />\n"
 "<child type=\"PushButton\" name=\"ClosePUSHBUTTON\" caption=\"&amp;Beenden\" x=\"240\" y=\"24\" width=\"80\" height=\"24\" style=\"1342242816\" id=\"136\" />\n"
 "<child type=\"DateTimePicker\" name=\"DateTimePICKER\" caption=\"\" x=\"72\" y=\"24\" width=\"80\" height=\"24\" style=\"1342242825\" id=\"137\" />\n"
+"<child type=\"Label\" name=\"\" caption=\"Befehl:\" x=\"8\" y=\"136\" width=\"32\" height=\"16\" style=\"1342242827\" />\n"
+"<child type=\"EditControl\" name=\"CmdEdit\" caption=\"\" x=\"8\" y=\"152\" width=\"320\" height=\"24\" style=\"1350631808\" id=\"138\" />\n"
 "</child>\n"
-"<child type=\"Label\" name=\"ShutdownICON\" caption=\"#1\" x=\"32\" y=\"32\" width=\"32\" height=\"32\" style=\"1342242819\" id=\"139\" />\n"
-"<child type=\"Label\" name=\"ActionLABEL\" caption=\"\" x=\"32\" y=\"80\" width=\"0\" height=\"0\" style=\"1342242827\" id=\"140\" font=\"Courier New;-24;0;0;0;400;0;0;0;0;3;2;1;49\" />\n"
+"<child type=\"Label\" name=\"ShutdownICON\" caption=\"#1\" x=\"32\" y=\"32\" width=\"32\" height=\"32\" style=\"1342242819\" id=\"140\" />\n"
+"<child type=\"Label\" name=\"ActionLABEL\" caption=\"\" x=\"32\" y=\"80\" width=\"0\" height=\"0\" style=\"1342242827\" id=\"141\" font=\"Courier New;-24;0;0;0;400;0;0;0;0;3;2;1;49\" />\n"
 "<layoutManager type=\"AttachmentManager\" />\n"
-"<child type=\"Label\" name=\"InfoLabel\" caption=\"\" x=\"8\" y=\"128\" width=\"0\" height=\"0\" style=\"1342242827\" font=\"Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49\" id=\"141\" />\n"
+"<child type=\"Label\" name=\"InfoLabel\" caption=\"\" x=\"8\" y=\"168\" width=\"0\" height=\"0\" style=\"1342242827\" font=\"Courier New;-11;0;0;0;400;0;0;0;0;3;2;1;49\" id=\"142\" />\n"
 "</child>\n"
 "</form>\n"
 "</forms>\n"
 "<strings>\n"
 "<list name=\"STRINGLIST\">\n"
-"<string name=\"LogOFF\" caption=\"Abmelden\" id=\"142\" />\n"
-"<string name=\"Shutdown\" caption=\"Abschalten\" id=\"143\" />\n"
-"<string name=\"Restart\" caption=\"Neustart\" id=\"144\" />\n"
-"<string name=\"Lock\" caption=\"Sperren\" id=\"145\" />\n"
-"<string name=\"Suspend\" caption=\"Energie sparen\" id=\"146\" />\n"
-"<string name=\"Hibernate\" caption=\"Ruhezustand\" id=\"147\" />\n"
+"<string name=\"LogOFF\" caption=\"Abmelden\" id=\"143\" />\n"
+"<string name=\"Shutdown\" caption=\"Abschalten\" id=\"144\" />\n"
+"<string name=\"Restart\" caption=\"Neustart\" id=\"145\" />\n"
+"<string name=\"Lock\" caption=\"Sperren\" id=\"146\" />\n"
+"<string name=\"Suspend\" caption=\"Energie sparen\" id=\"147\" />\n"
+"<string name=\"Hibernate\" caption=\"Ruhezustand\" id=\"148\" />\n"
 "</list>\n"
 "</strings>\n"
 "</gui>";
@@ -82,6 +84,7 @@ namespace winlibGUI {
 		TimeLABEL=static_cast<winlib::Label*>(findChild(TimeLABEL_id));
 		ClosePUSHBUTTON=static_cast<winlib::PushButton*>(findChild(ClosePUSHBUTTON_id));
 		DateTimePICKER=static_cast<winlib::DateTimePicker*>(findChild(DateTimePICKER_id));
+		CmdEdit=static_cast<winlib::EditControl*>(findChild(CmdEdit_id));
 		mainFRAME=static_cast<winlib::FrameChild*>(findChild(mainFRAME_id));
 		ShutdownICON=static_cast<winlib::Label*>(findChild(ShutdownICON_id));
 		ActionLABEL=static_cast<winlib::Label*>(findChild(ActionLABEL_id));

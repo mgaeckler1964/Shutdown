@@ -40,6 +40,7 @@
 
 #include <gak/fmtNumber.h>
 
+#include <WINLIB/WINLIB.H>
 #include <WINLIB/WINAPP.H>
 
 #include "Shutdown_rc.h"
@@ -83,6 +84,7 @@ class ShutdownMainWindow : public ShutdownFORM_form
 {
 	time_t	m_endTime;
 	int		m_controlId;
+	bool	m_startAutoExit;
 
 	void ShutdownMainWindow::execShutdown( int mode );
 
@@ -97,6 +99,7 @@ public:
 	{
 		m_endTime = 0;
 		m_controlId = 0;
+		m_startAutoExit = false;
 	}
 };
 
@@ -261,8 +264,17 @@ void ShutdownMainWindow::execShutdown( int control )
 /*@*/	return;
 	}
 
+	// execute autoexit
+	if( m_startAutoExit )
+	{
+		STRING autoexitCmd = CmdEdit->getText();
+		if( !autoexitCmd.isEmpty() )
+		{
+			shutdownApplication.WriteProfile( false, "", "autoexitCmd", autoexitCmd );
+			SyncExec( autoexitCmd, SW_SHOW );
+		}
+	}
 	// Windows beenden und Rechner ausschalten
-
 	switch( control )
 	{
 		case  ShutdownPUSHBUTTON_id:
@@ -336,17 +348,22 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	focus();
 	DateTimePICKER->focus();
 
+	STRING	autoexitCmd = shutdownApplication.GetProfile( "", "autoexitCmd", "" );
+	CmdEdit->setText(autoexitCmd );
+
 	return psDO_DEFAULT;
 }
 
 ProcessStatus ShutdownMainWindow::handleButtonClick( int buttonID )
 {
+	m_startAutoExit = false;
 	switch( buttonID )
 	{
 		case ShutdownPUSHBUTTON_id:
 		case LogOffPUSHBUTTON_id:
-		case LockPUSHBUTTON_id:
 		case RestartPUSHBUTTON_id:
+			m_startAutoExit = true;
+		case LockPUSHBUTTON_id:
 		case SuspendPUSHBUTTON_id:
 		case HibernatePUSHBUTTON_id:
 			startTimer(buttonID);

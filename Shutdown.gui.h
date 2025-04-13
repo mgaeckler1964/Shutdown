@@ -17,24 +17,25 @@
 
 namespace winlibGUI {
 
-	const int ActionLABEL_id=140;
+	const int ActionLABEL_id=141;
 	const int ClosePUSHBUTTON_id=136;
+	const int CmdEdit_id=138;
 	const int DateTimePICKER_id=137;
-	const int Hibernate_id=147;
+	const int Hibernate_id=148;
 	const int HibernatePUSHBUTTON_id=134;
-	const int InfoLabel_id=141;
-	const int Lock_id=145;
+	const int InfoLabel_id=142;
+	const int Lock_id=146;
 	const int LockPUSHBUTTON_id=131;
-	const int LogOFF_id=142;
+	const int LogOFF_id=143;
 	const int LogOffPUSHBUTTON_id=130;
-	const int mainFRAME_id=138;
-	const int Restart_id=144;
+	const int mainFRAME_id=139;
+	const int Restart_id=145;
 	const int RestartPUSHBUTTON_id=132;
-	const int Shutdown_id=143;
+	const int Shutdown_id=144;
 	const int ShutdownFORM_id=128;
-	const int ShutdownICON_id=139;
+	const int ShutdownICON_id=140;
 	const int ShutdownPUSHBUTTON_id=129;
-	const int Suspend_id=146;
+	const int Suspend_id=147;
 	const int SuspendPUSHBUTTON_id=133;
 	const int TimeLABEL_id=135;
 
@@ -60,6 +61,7 @@ namespace winlibGUI {
 		winlib::Label *TimeLABEL;
 		winlib::PushButton *ClosePUSHBUTTON;
 		winlib::DateTimePicker *DateTimePICKER;
+		winlib::EditControl *CmdEdit;
 		winlib::FrameChild *mainFRAME;
 		winlib::Label *ShutdownICON;
 		winlib::Label *ActionLABEL;
