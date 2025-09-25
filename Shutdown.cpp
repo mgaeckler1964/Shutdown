@@ -42,6 +42,7 @@
 
 #include <WINLIB/WINLIB.H>
 #include <WINLIB/WINAPP.H>
+#include <WINLIB/Processor.h>
 
 #include "Shutdown_rc.h"
 #include "Shutdown.gui.h"
@@ -133,6 +134,73 @@ class ShutdownApplication : public GuiApplication
 
 	public:
 	ShutdownApplication() : GuiApplication( IDI_SHUTDOWN ) {}
+};
+
+class ShuttdownWindowProcessor : public winlib::WindowProcessor
+{
+	int m_message;
+	int m_stopProcessor;
+	const ForeignWindow *m_badWindow;
+
+	public:
+	ShuttdownWindowProcessor( int message=WM_QUERYENDSESSION ) : m_message(message), m_stopProcessor(false), m_badWindow(nullptr) {}
+	void setMessage( int message )
+	{
+		m_message = message;
+	}
+	bool acceptWindow( const ForeignWindow &window )
+	{
+		doEnterFunctionEx( gakLogging::llDetail, "ShuttdownWindowProcessor::acceptWindow" );
+
+		doLogValueEx(gakLogging::llDetail, gak::formatBinary(gak::uint64(window.handle()),16));
+		doLogValueEx(gakLogging::llDetail, gak::formatBinary(gak::uint64(appObject->getMainWindow()->handle()),16));
+		if( window.handle() != appObject->getMainWindow()->handle() && window.isEnabled() /* && window.isWindowVisible() */ )
+		{
+			unsigned long wantStyle = WS_SYSMENU|WS_CAPTION|WS_OVERLAPPEDWINDOW;
+			unsigned long style = window.getStyle();
+			STRING title = window.getText();
+			if( (style & wantStyle) == wantStyle && !title.isEmpty())
+			{
+				HWND parent = window.getParentHandle();
+				if( parent == 0 )
+				{
+					doLogValueEx(gakLogging::llDetail,gak::formatBinary(gak::uint64(parent),16));
+					doLogValueEx(gakLogging::llDetail,style);
+					doLogValueEx(gakLogging::llDetail,title);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	bool processWindow( const ForeignWindow &window )
+	{
+		doEnterFunctionEx( gakLogging::llInfo, "ShuttdownWindowProcessor::processWindow" );
+
+		if( !m_stopProcessor )
+		{
+			doLogValueEx( gakLogging::llInfo, gak::formatBinary(gak::uint64(window.handle()),16));
+			doLogValueEx( gakLogging::llInfo, m_message);
+			doLogValueEx( gakLogging::llInfo, window.getText());
+			doLogValueEx( gakLogging::llInfo, gak::formatBinary(gak::uint64(window.getStyle()), 2));
+			int msgResult = window.message( m_message );
+			if( m_message == WM_QUERYENDSESSION && msgResult == 0 )
+			{
+				m_stopProcessor = true;
+				m_badWindow = &window;
+			}
+		}
+		return m_stopProcessor;
+	}
+	bool stopped() const
+	{
+		return m_stopProcessor;
+	}
+	const ForeignWindow *badWindow() const
+	{
+		return m_badWindow;
+	}
 };
 
 // --------------------------------------------------------------------- //
@@ -262,6 +330,32 @@ void ShutdownMainWindow::execShutdown( int control )
 	{
 		messageBox("Fehler bei AdjustTokenPrivileges");
 /*@*/	return;
+	}
+
+	switch( control )
+	{
+		case  ShutdownPUSHBUTTON_id:
+		case  LogOffPUSHBUTTON_id:
+		case  RestartPUSHBUTTON_id:
+		case  LockPUSHBUTTON_id:
+		{
+			ShuttdownWindowProcessor processor;
+			processor();
+
+			if( !processor.stopped() )
+			{
+				processor.setMessage( WM_ENDSESSION );
+				processor();
+				processor.setMessage( WM_CLOSE );
+				processor();
+			}
+			else
+			{
+				const ForeignWindow *badWindow = processor.badWindow();
+				messageBox(STRING("Shutdown abgebrochen \"") + badWindow->getText()+"\" "+gak::formatBinary(gak::uint64(badWindow->handle()),16) );
+/*@*/			return;
+			}
+		}
 	}
 
 	// execute autoexit
