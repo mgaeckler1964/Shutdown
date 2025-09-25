@@ -337,7 +337,6 @@ void ShutdownMainWindow::execShutdown( int control )
 		case  ShutdownPUSHBUTTON_id:
 		case  LogOffPUSHBUTTON_id:
 		case  RestartPUSHBUTTON_id:
-		case  LockPUSHBUTTON_id:
 		{
 			ShuttdownWindowProcessor processor;
 			processor();
