@@ -426,7 +426,7 @@ void ShutdownMainWindow::execShutdown( int control )
    
 ProcessStatus ShutdownMainWindow::handleCreate( void )
 {
-	InfoLabel->setText(gak::formatNumber(sizeof(void*)*8) + "-bit");
+	InfoLabel->setText(getWindowsWidth());
 	
 	long	totalSeconds = shutdownApplication.GetProfile( "", "totalSeconds", 3600 );
 
