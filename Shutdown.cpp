@@ -6,7 +6,7 @@
 		Address:		Hofmannsthalweg 14, A-4030 Linz
 		Web:			https://www.gaeckler.at/
 
-		Copyright:		(c) 1988-2025 Martin Gäckler
+		Copyright:		(c) 1988-2026 Martin Gäckler
 
 		This program is free software: you can redistribute it and/or modify  
 		it under the terms of the GNU General Public License as published by  
@@ -39,6 +39,7 @@
 // --------------------------------------------------------------------- //
 
 #include <gak/fmtNumber.h>
+#include <gak/user.h>
 
 #include <WINLIB/WINLIB.H>
 #include <WINLIB/WINAPP.H>
@@ -444,6 +445,12 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	STRING	autoexitCmd = shutdownApplication.GetProfile( "", "autoexitCmd", "" );
 	CmdEdit->setText(autoexitCmd );
 
+	STRING theUserName = gak::getCurrentUserName();
+	if( !theUserName.isEmpty() )
+	{
+		STRING logoffText = theUserName + ' ' + LogOffPUSHBUTTON->getText();
+		LogOffPUSHBUTTON->setText(logoffText);
+	}
 	return psDO_DEFAULT;
 }
 
