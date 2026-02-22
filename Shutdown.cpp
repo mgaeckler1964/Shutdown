@@ -427,6 +427,7 @@ void ShutdownMainWindow::execShutdown( int control )
    
 ProcessStatus ShutdownMainWindow::handleCreate( void )
 {
+	doEnterFunctionEx( gakLogging::llInfo, "ShutdownMainWindow::handleCreate" );
 	InfoLabel->setText(getWindowsWidth());
 	
 	long	totalSeconds = shutdownApplication.GetProfile( "", "totalSeconds", 3600 );
@@ -443,6 +444,7 @@ ProcessStatus ShutdownMainWindow::handleCreate( void )
 	DateTimePICKER->focus();
 
 	STRING	autoexitCmd = shutdownApplication.GetProfile( "", "autoexitCmd", "" );
+	doLogValueEx(gakLogging::llInfo, autoexitCmd);
 	CmdEdit->setText(autoexitCmd );
 
 	STRING theUserName = gak::getCurrentUserName();
