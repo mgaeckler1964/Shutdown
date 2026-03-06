@@ -185,7 +185,7 @@ class ShuttdownWindowProcessor : public winlib::WindowProcessor
 			doLogValueEx( gakLogging::llInfo, m_message);
 			doLogValueEx( gakLogging::llInfo, window.getText());
 			doLogValueEx( gakLogging::llInfo, gak::formatBinary(gak::uint64(window.getStyle()), 2));
-			int msgResult = window.message( m_message );
+			int msgResult = int(window.message( m_message ));
 			if( m_message == WM_QUERYENDSESSION && msgResult == 0 )
 			{
 				m_stopProcessor = true;
