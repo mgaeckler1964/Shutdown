@@ -107,26 +107,24 @@ public:
 
 class ShutdownApplication : public GuiApplication
 {
-	virtual bool 	startApplication( HINSTANCE /*hInstance*/, const char * /*cmdLine*/ )
+	virtual bool startApplication( HINSTANCE /*hInstance*/, const char * /*cmdLine*/ )
 	{
 		doEnableLogEx(gakLogging::llInfo);
 		setApplication("Shutdown");
-		setComapny("gak");
+		setCompany("gak");
 		return 0;
 	}
-	virtual CallbackWindow  *createMainWindow( const char * /*cmdLine*/, int /*nCmdShow*/ )
+	virtual CallbackWindow *createMainWindow( const char * /*cmdLine*/, int /*nCmdShow*/ )
 	{
-		ShutdownMainWindow	*mainWindow = new ShutdownMainWindow;
+		std::auto_ptr<ShutdownMainWindow>	mainWindow( new ShutdownMainWindow );
 		if( mainWindow->create( NULL ) == scERROR )
 		{
-			MessageBox( NULL, "Could not create window", "Error", MB_ICONERROR );
-			delete mainWindow;
-			mainWindow = NULL;
+			throw gak::LibraryException( "Could not create window!" );
 		}
 		mainWindow->focus();
 		mainWindow->DateTimePICKER->focus();
 
-		return mainWindow;
+		return mainWindow.release();
 	}
 	virtual void deleteMainWindow( BasicWindow  *mainWindow )
 	{
